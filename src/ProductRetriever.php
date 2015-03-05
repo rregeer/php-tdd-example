@@ -3,6 +3,8 @@
 namespace TDD;
 
 use Elasticsearch;
+use TDD;
+use TDD\Exceptions;
 
 class ProductRetriever {
 
@@ -16,7 +18,7 @@ class ProductRetriever {
         $client = $this->getEsClient();
 
         if (is_numeric($productId) === false) {
-            throw new InvalidArgumentException("ProductId must be a number");
+            throw new \InvalidArgumentException('ProductId must be a number');
         }
 
         $getParams = array();
@@ -27,22 +29,18 @@ class ProductRetriever {
         try {
             $esResult = $client->get($getParams);
 
-            $document = json_decode($esResult);
-
             $product = new Product();
+            $product->setProductId($esResult['data']['_source']['productId']);
+            $product->setName($esResult['data']['_source']['name']);
+            $product->setSalesPrice($esResult['data']['_source']['salesPrice']);
 
-           // $product->setProductId($document->_source->productId);
-          //  $product->setName($document->_source->name);
-           // $product->setSalesPrice($document->_source->salesPrice);
-
-            return $esResult;
+            return $product;
         }
-        catch (Exception $error) {
-            if ($error instanceof Elasticsearch\Common\Exceptions\Missing404Exception === true) {
-                throw new NotFoundExeption('Product with id $productId is not found');
-            }
-
-            throw new UnexpectedResultException();
+        catch (Elasticsearch\Common\Exceptions\Missing404Exception $exception) {
+          throw new Exceptions\NotFoundException('Product with id '.$productId.' is not found');
+        }
+        catch(\Exception $exception) {
+            throw new Exceptions\UnexpectedResultException('Error in retrieving product: '.$exception->getMessage());
         }
     }
 
@@ -53,5 +51,4 @@ class ProductRetriever {
     private function getEsClient() {
         return $this->esClient;
     }
-
 }
