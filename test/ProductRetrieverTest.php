@@ -60,4 +60,20 @@ class ProductRetrieverTest extends \PHPUnit_Framework_TestCase {
 
         $this->fail('Expected NotFoundException has not been raised.');
     }
+
+    public function testRaiseErrrorIfStorageEngineNotAvailable() {
+      $this->clientStub->method('get')
+      ->will($this->throwException(new TDD\Exceptions\UnexpectedResultException('')));
+
+      try
+      {
+        $this->productRetriever->retrieveProduct(1);
+      }
+      catch (TDD\Exceptions\UnexpectedResultException $exception) {
+        $this->assertInstanceOf('TDD\Exceptions\UnexpectedResultException', $exception);
+        return;
+      }
+
+      $this->fail('Expected UnexpectedResultException has not been raised.');
+    }
 }
