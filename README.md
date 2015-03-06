@@ -56,12 +56,11 @@ The tests can be run using phpunit on the command line
 cd php-tdd-example
 phpunit test/
 ```
-## Exercise 1 finding bugs:
+## Exercise 1: finding bugs.
 All the tests are running, but is everything ok?. There can be still bugs in the code we haven't seen and covered.
 Take a look at the tests and the code and see if everything is covered and the code is correct.
 If you found the bug(s). Correct the code and create a test for it so the bug will never happen again.
-```
-## Exercise 2: extending result and refactor code:
+## Exercise 2: extending result and refactor code.
 Add salesprice and product information to the product.
 If there´s no salesprice then the salesprice is null.
 If there´s no product information then the product information is null.
@@ -96,7 +95,7 @@ _source: {
     }
   }
 ```
-## Exercise 3: refactor code and add new functionality:
+## Exercise 3: refactor code and add new functionality.
 Add brand information to the product.
 If there´s no brand information then the brand is null.
 The brand is in a separate elastic-search index "brand". The type is "brand".
