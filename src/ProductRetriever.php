@@ -30,7 +30,7 @@ class ProductRetriever {
             $esResult = $client->get($getParams);
 
             $product = new Product();
-            $product->setProductId($esResult['data']['_source']['productId']);
+            $product->setProductId($esResult['data']['_source']['id']);
             $product->setName($esResult['data']['_source']['name']);
             $product->setSalesPrice($esResult['data']['_source']['salesPrice']);
 

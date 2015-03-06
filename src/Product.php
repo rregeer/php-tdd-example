@@ -17,7 +17,7 @@ class Product
     }
 
     public function setProductId($value) {
-        $this->productId = (string)$value;
+        $this->productId = (int)$value;
     }
 
     public function getProductId() {
@@ -25,7 +25,7 @@ class Product
     }
 
     public function setSalesPrice($value) {
-        $this->salesPrice = (string)$value;
+        $this->salesPrice = (int)$value;
     }
 
     public function getSalesPrice() {

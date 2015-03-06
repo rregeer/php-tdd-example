@@ -18,12 +18,11 @@ class ProductRetrieverTest extends \PHPUnit_Framework_TestCase {
     public function testRetrieverProductHappyPath() {
         $result = array();
         $result['data'] = array();
-        $result['data']['_source']['productId'] = 1;
+        $result['data']['_source']['id'] = 1;
         $result['data']['_source']['name'] = 'Apple Iphone';
         $result['data']['_source']['salesPrice'] = 500;
 
-        $this->clientStub->method('get')
-            ->willReturn($result);
+        $this->clientStub->method('get')->willReturn($result);
 
         $product = $this->productRetriever->retrieveProduct(1);
 
@@ -63,7 +62,7 @@ class ProductRetrieverTest extends \PHPUnit_Framework_TestCase {
 
     public function testRaiseErrrorIfStorageEngineNotAvailable() {
       $this->clientStub->method('get')
-      ->will($this->throwException(new TDD\Exceptions\UnexpectedResultException('')));
+        ->will($this->throwException(new TDD\Exceptions\UnexpectedResultException('')));
 
       try
       {
