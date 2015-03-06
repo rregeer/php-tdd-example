@@ -47,7 +47,7 @@ sudo apt-get install git
 ```
 Now you can clone the git repository, checkout the code and install the packages.
 ```bash
-git clone clone https://github.com/rregeer/php-tdd-example
+git clone https://github.com/rregeer/php-tdd-example
 cd php-tdd-example
 sudo composer install
 ```
