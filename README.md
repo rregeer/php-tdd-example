@@ -94,6 +94,7 @@ _source: {
       priceIncludingVat: 799
     }
   }
+}
 ```
 ## Exercise 3: refactor code and add new functionality.
 Add brand information to the product.
@@ -126,11 +127,12 @@ _source: {
       priceIncludingVat: 799
     }
   }
-  ```
-  Example of the brand elastic-search response:
-  ```js
-  _source: {
-    id: 12,
-    name: "Apple"
-  }
+}
+```
+Example of the brand elastic-search response:
+```js
+_source: {
+  id: 12,
+  name: "Apple"
+}
 ```
