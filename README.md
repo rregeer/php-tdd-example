@@ -60,6 +60,7 @@ phpunit test/
 All the tests are running, but is everything ok?. There can be still bugs in the code we haven't seen and covered.
 Take a look at the tests and the code and see if everything is covered and the code is correct.
 If you found the bug(s). Correct the code and create a test for it so the bug will never happen again.
+Hint take a good look at the product entity in the documentation and of implementation.
 ## Exercise 2: extending result and refactor code.
 Add salesprice and product information to the product.
 If there´s no salesprice then the salesprice is null.
