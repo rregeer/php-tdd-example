@@ -90,7 +90,7 @@ _source: {
     fullName: "Apple Iphone 6 special edition",
     description: "The Apple Iphone 6 special edition."
     },
-    salesPrice: {
+  salesPrice: {
       priceExcludingVat: 660.33058,
       priceIncludingVat: 799
     }
